@@ -2,12 +2,11 @@
   "name": "sbf_form_test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "sbf_form_test/build",
+  "homepage": "sbf-form-test/build",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "gsap": "^3.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
