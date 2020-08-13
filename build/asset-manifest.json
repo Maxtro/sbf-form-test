@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/sbf_form_test/build/static/css/main.fd1dc233.chunk.css",
-    "main.js": "/sbf_form_test/build/static/js/main.49711806.chunk.js",
-    "main.js.map": "/sbf_form_test/build/static/js/main.49711806.chunk.js.map",
-    "runtime-main.js": "/sbf_form_test/build/static/js/runtime-main.765906fe.js",
-    "runtime-main.js.map": "/sbf_form_test/build/static/js/runtime-main.765906fe.js.map",
-    "static/js/2.47f883c5.chunk.js": "/sbf_form_test/build/static/js/2.47f883c5.chunk.js",
-    "static/js/2.47f883c5.chunk.js.map": "/sbf_form_test/build/static/js/2.47f883c5.chunk.js.map",
-    "index.html": "/sbf_form_test/build/index.html",
-    "precache-manifest.d13e7313ab96e16b899d44a1de95536d.js": "/sbf_form_test/build/precache-manifest.d13e7313ab96e16b899d44a1de95536d.js",
-    "service-worker.js": "/sbf_form_test/build/service-worker.js",
-    "static/css/main.fd1dc233.chunk.css.map": "/sbf_form_test/build/static/css/main.fd1dc233.chunk.css.map",
-    "static/js/2.47f883c5.chunk.js.LICENSE.txt": "/sbf_form_test/build/static/js/2.47f883c5.chunk.js.LICENSE.txt",
-    "static/media/loader.svg": "/sbf_form_test/build/static/media/loader.d867dc60.svg"
+    "main.css": "/sbf-form-test/build/static/css/main.fd1dc233.chunk.css",
+    "main.js": "/sbf-form-test/build/static/js/main.6e5a36e3.chunk.js",
+    "main.js.map": "/sbf-form-test/build/static/js/main.6e5a36e3.chunk.js.map",
+    "runtime-main.js": "/sbf-form-test/build/static/js/runtime-main.78c84c4e.js",
+    "runtime-main.js.map": "/sbf-form-test/build/static/js/runtime-main.78c84c4e.js.map",
+    "static/js/2.47f883c5.chunk.js": "/sbf-form-test/build/static/js/2.47f883c5.chunk.js",
+    "static/js/2.47f883c5.chunk.js.map": "/sbf-form-test/build/static/js/2.47f883c5.chunk.js.map",
+    "index.html": "/sbf-form-test/build/index.html",
+    "precache-manifest.ecfabf670bbe45e80811922fbe6ccb02.js": "/sbf-form-test/build/precache-manifest.ecfabf670bbe45e80811922fbe6ccb02.js",
+    "service-worker.js": "/sbf-form-test/build/service-worker.js",
+    "static/css/main.fd1dc233.chunk.css.map": "/sbf-form-test/build/static/css/main.fd1dc233.chunk.css.map",
+    "static/js/2.47f883c5.chunk.js.LICENSE.txt": "/sbf-form-test/build/static/js/2.47f883c5.chunk.js.LICENSE.txt",
+    "static/media/loader.svg": "/sbf-form-test/build/static/media/loader.d867dc60.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.765906fe.js",
+    "static/js/runtime-main.78c84c4e.js",
     "static/js/2.47f883c5.chunk.js",
     "static/css/main.fd1dc233.chunk.css",
-    "static/js/main.49711806.chunk.js"
+    "static/js/main.6e5a36e3.chunk.js"
   ]
 }
