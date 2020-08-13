@@ -1,5 +1,5 @@
 
-## Демо
+## Демо ### (React + Redux + Redux Form)
 https://maxtro.github.io/sbf-form-test/build/
 
 ### Форма заявки
