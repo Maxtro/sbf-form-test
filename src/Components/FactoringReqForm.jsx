@@ -4,24 +4,7 @@ import { reduxForm, Field } from 'redux-form'
 import style from '../css/main.module.css'
 import { addBuyerForm, getStep } from '../redux/dataReduser'
 import loader from '../img/loader.svg'
-
-const required = value => value ? undefined : 'Обязательное для заполнения поле'
-
-const email = value => value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Некорректный адрес электронной почты' : undefined
-
-const phone = value => value && !/^\+7\s?[(]{0,1}9[0-9]{2}[)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}$/i.test(value) ?
-  'Укажите номер телефона в формате +7ХХХXXXXXXX' : undefined
-
-  const maxValue = (max) => value =>
-  parseInt(value.replace(/\s/g, '')) && parseInt(value.replace(/\s/g, '')) > max ? `Сумма должна быть не больше ${max.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} руб.` : undefined
-const maxValue50 = maxValue(50000000)
-
-const minValue = (min) => value =>
-parseInt(value.replace(/\s/g, '')) && parseInt(value.replace(/\s/g, '')) < min ? `Сумма должна быть не меньше ${min.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} руб.` : undefined
-const minValue30 = minValue(300000)
-
-const rank = value => value && value.replace(/[^\d]/g, '').replace(/\B(?=(?:\d{3})+(?!\d))/g, ' ')
+import { validation } from '../redux/utils'
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div>
@@ -59,12 +42,12 @@ const Form = (props) => {
             </form></> 
             :
             <form onSubmit={ props.handleSubmit }>
-                <li><Field component={renderField} label={'Ф.И.О.'} type={'text'} name={'fio'} validate={required} /></li>
-                <li><Field component={renderField} label={'Название компании / ИНН'} type={'text'} name={'innComp'} validate={required} /></li>
-                <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={'innBuyer'} validate={required} /></li>
-                <li><Field component={renderField} label={'Номер телефона'} type={'tel'} name={'phone'} validate={[required, phone]} /></li>
-                <li><Field component={renderField} label={'Адрес электронной почты'} type={'email'} name={'email'} validate={[required, email]} /></li>
-                <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={'sum'} validate={[required, maxValue50, minValue30]} normalize={rank} /></li>
+                <li><Field component={renderField} label={'Ф.И.О.'} type={'text'} name={'fio'} validate={validation.required} /></li>
+                <li><Field component={renderField} label={'Название компании / ИНН'} type={'text'} name={'innComp'} validate={validation.required} /></li>
+                <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={'innBuyer'} validate={validation.required} /></li>
+                <li><Field component={renderField} label={'Номер телефона'} type={'tel'} name={'phone'} validate={[validation.required, validation.phone]} /></li>
+                <li><Field component={renderField} label={'Адрес электронной почты'} type={'email'} name={'email'} validate={[validation.required, validation.email]} /></li>
+                <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={'sum'} validate={[validation.required, validation.maxValue(50000000), validation.minValue(300000)]} normalize={validation.rank} /></li>
                 
                 {
                     props.buyerForms.map(form => <FormBuyer key={form.id} id={form.id} name={form.name} sum={form.sum}/>)
@@ -88,8 +71,8 @@ const FormBuyer = (props) => {
     return(
         <>
         <div className={style.line}><span>Покупатель {parseInt(props.id)+1}</span></div>
-        <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={props.name} validate={required} /></li>
-        <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={props.sum} validate={[required, maxValue50, minValue30]} normalize={rank} /></li>
+        <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={props.name} validate={validation.required} /></li>
+        <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={props.sum} validate={[validation.required, validation.maxValue(50000000), validation.minValue(300000)]} normalize={validation.rank} /></li>
         </>
     )
 }
