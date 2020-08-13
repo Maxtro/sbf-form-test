@@ -11,8 +11,8 @@ https://maxtro.github.io/sbf-form-test/build/
 ### Валидация формы
 ![Валидация формы](https://github.com/Maxtro/sbf-form-test/blob/master/screenshots/3.jpg?raw=true)
 
-### Результат после ответа с сервера
-![Результат после ответа с сервера](https://github.com/Maxtro/sbf-form-test/blob/master/screenshots/4.jpg?raw=true)
+### Результат после ответа сервера
+![Результат после ответа сервера](https://github.com/Maxtro/sbf-form-test/blob/master/screenshots/4.jpg?raw=true)
 
 
 
