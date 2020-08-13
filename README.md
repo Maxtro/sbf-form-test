@@ -1,6 +1,6 @@
 
 ## Демо
-https://maxtro.github.io/sbf_form_test/build/
+https://maxtro.github.io/sbf-form-test/build/
 
 
 
