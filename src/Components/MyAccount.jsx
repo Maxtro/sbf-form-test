@@ -9,7 +9,8 @@ const MyAccount = (props) => {
         
         <div className={style.headerText}><b>ЛИЧНЫЙ КАБИНЕТ</b></div>
         <div style={ {paddingLeft: 15, paddingRight: 15, paddingBottom: 15, paddingTop: 0} }>
-        <div className={style.line}><span><b>ЗАЯВКА НА ФАКТОРИНГ</b></span></div><br/>
+        <div className={style.line}><span><b>ЗАЯВКА НА ФАКТОРИНГ</b></span></div>
+        <div style={{ color: '#2da032', textAlign: 'center', marginTop: 10, fontSize: 13 }}><b>В обработке</b></div><br/>
             <div className={style.acountInfo}>
                 <div style={{ fontSize: 12}}>
                     <div><b>Ф.И.О.:</b> {props.orderData.fio}</div>
