@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field } from 'redux-form'
 import { createTextMask } from 'redux-form-input-masks';
+import { NavLink } from 'react-router-dom'
 import style from '../css/main.module.css'
-import { addBuyerForm, getStep } from '../redux/dataReduser'
+import { addBuyerForm, getStep, getOrderData } from '../redux/dataReduser'
 import loader from '../img/loader.svg'
 import { validation } from '../redux/utils'
 
@@ -25,8 +26,8 @@ const Form = (props) => {
     const addBuyer = () => {
         const newBuyer = {
             id: props.buyerForms[0] !== undefined ? parseInt(props.buyerForms[props.buyerForms.length - 1].id) + 1 : '1', 
-            name: props.buyerForms[0] !== undefined ? 'fioBuyer' + (parseInt(props.buyerForms[props.buyerForms.length - 1].id) + 1) : 'nameBuyer', 
-            sum: props.buyerForms[0] !== undefined ? 'sumBuyer'+ (parseInt(props.buyerForms[props.buyerForms.length - 1].id) + 1) : 'sumBuyer'
+            name: props.buyerForms[0] !== undefined ? 'nameBuyer' + (parseInt(props.buyerForms[props.buyerForms.length - 1].id) + 1) : 'nameBuyer1', 
+            sum: props.buyerForms[0] !== undefined ? 'sumBuyer'+ (parseInt(props.buyerForms[props.buyerForms.length - 1].id) + 1) : 'sumBuyer1'
         }
         props.addBuyerForm(newBuyer)
     }
@@ -43,7 +44,9 @@ const Form = (props) => {
                     <li><Field className={style.inputCabinet} placeholder='Пароль' component={'input'} type={'password'} name={'pass'} /></li>
                     <div style={{ fontSize: 12, cursor: 'pointer' }}><u>Забыли пароль?</u></div>
                 </div><br/>
-                <button className={ `${style.formButton} ${style.animation}`} type='submit'>Войти в личный кабинет</button> 
+                <NavLink to={'/MyAccount'}>
+                    <button className={ `${style.formButton} ${style.animation}`} type='submit'>Войти в личный кабинет</button> 
+                </NavLink>
             </form></> 
             :
             <form onSubmit={ props.handleSubmit }>
@@ -75,7 +78,7 @@ const Form = (props) => {
 const FormBuyer = (props) => {
     return(
         <>
-        <div className={style.line}><span>Покупатель {parseInt(props.id)+1}</span></div>
+        <div className={style.line}><span>Покупатель {parseInt(props.id)}</span></div>
         <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={props.name} validate={validation.required} /></li>
         <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={props.sum} validate={[validation.required, validation.maxValue(50000000), validation.minValue(300000)]} normalize={validation.rank} /></li>
         </>
@@ -88,8 +91,36 @@ const FactoringReqForm = (props) => {
 
     const onSubmit = (data) => {
         console.log(data)
-        props.getStep('2')
-    }
+        const sumBuyerArray = []
+        const nameBuyerArray = []
+        const buyerData = []
+        
+        const buyerArray = []
+            for (let [key, value] of Object.entries(data)) {
+                let item = { [key]: value }
+                buyerArray.push(item)
+            }
+    
+            for(let i = 1; i <= buyerArray.length; i++){
+                for(var key in buyerArray[i] ) {
+                    for(let j = 1; j <= buyerArray.length; j++){
+                        if(key === `sumBuyer${j}`){
+                            sumBuyerArray.push(buyerArray[i][key])
+                        }
+                        if(key === `nameBuyer${j}`){
+                            nameBuyerArray.push(buyerArray[i][key])
+                        }
+                    }
+                }
+            }
+
+            for(let i = 0; i < sumBuyerArray.length; i++){
+                const bObj = { name: nameBuyerArray[i], sum: sumBuyerArray[i] }
+                buyerData.push(bObj)
+            }
+                props.getStep('2')
+                props.getOrderData(data, buyerData)
+            }
 
     return (
         <>
@@ -107,4 +138,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addBuyerForm, getStep })(FactoringReqForm)
+export default connect(mapStateToProps, { addBuyerForm, getStep, getOrderData })(FactoringReqForm)

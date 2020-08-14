@@ -18,5 +18,8 @@ https://maxtro.github.io/sbf-form-test/build/
 ### Данные из формы отображаются в консоле
 ![Данные из формы отображаются в консоле](https://github.com/Maxtro/sbf-form-test/blob/master/screenshots/5.jpg?raw=true)
 
+### Личный кабинет
+![Личный кабинет](https://github.com/Maxtro/sbf-form-test/blob/master/screenshots/6.jpg?raw=true)
+
 
 
