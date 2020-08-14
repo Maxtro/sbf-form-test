@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm, Field } from 'redux-form'
+import { createTextMask } from 'redux-form-input-masks';
 import style from '../css/main.module.css'
 import { addBuyerForm, getStep } from '../redux/dataReduser'
 import loader from '../img/loader.svg'
@@ -14,6 +15,10 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
       </div>
     </div>
   )
+
+const phoneMask = createTextMask({
+    pattern: '+7(999)999-99-99',
+  })
 
 const Form = (props) => {
 
@@ -45,7 +50,7 @@ const Form = (props) => {
                 <li><Field component={renderField} label={'Ф.И.О.'} type={'text'} name={'fio'} validate={validation.required} /></li>
                 <li><Field component={renderField} label={'Название компании / ИНН'} type={'text'} name={'innComp'} validate={validation.required} /></li>
                 <li><Field component={renderField} label={'Название компании / ИНН вашего покупателя'} type={'text'} name={'innBuyer'} validate={validation.required} /></li>
-                <li><Field component={renderField} label={'Номер телефона'} type={'tel'} name={'phone'} validate={[validation.required, validation.phone]} /></li>
+                <li><Field component={renderField} label={'+7(___)___-__-__'} type={'tel'} name={'phone'} validate={[validation.required, validation.phone(10)]} {...phoneMask} /></li>
                 <li><Field component={renderField} label={'Адрес электронной почты'} type={'email'} name={'email'} validate={[validation.required, validation.email]} /></li>
                 <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={'sum'} validate={[validation.required, validation.maxValue(50000000), validation.minValue(300000)]} normalize={validation.rank} /></li>
                 

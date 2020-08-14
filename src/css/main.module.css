@@ -51,6 +51,8 @@
 	padding: 10px 10px 10px 10px;
 }
 
+input::-webkit-input-placeholder { color:black; }
+
 .inputStyle:hover {
     border: 1px solid #000000;
 }
