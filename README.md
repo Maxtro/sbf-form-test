@@ -1,5 +1,5 @@
 
-## Форма (React + Redux + Redux Form)
+## Форма (React + Router + Redux + Redux Form)
 ### Демо 
 https://maxtro.github.io/sbf-form-test/build/
 
