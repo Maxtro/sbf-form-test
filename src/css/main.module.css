@@ -11,7 +11,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     padding: 10px;
-    border: 0px solid #d3d2d2;
+    border: 1.5px dashed #cacaca;
 }
 
 .animation {
