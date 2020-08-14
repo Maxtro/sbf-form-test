@@ -8,7 +8,8 @@ const MyAccount = (props) => {
         <>
         
         <div className={style.headerText}><b>ЛИЧНЫЙ КАБИНЕТ</b></div>
-        <div style={ {paddingLeft: 15, paddingRight: 15, paddingBottom: 15, paddingTop: 15} }>
+        <div style={ {paddingLeft: 15, paddingRight: 15, paddingBottom: 15, paddingTop: 0} }>
+        <div className={style.line}><span><b>ЗАЯВКА НА ФАКТОРИНГ</b></span></div><br/>
             <div className={style.acountInfo}>
                 <div style={{ fontSize: 12}}>
                     <div><b>Ф.И.О.:</b> {props.orderData.fio}</div>
@@ -16,6 +17,7 @@ const MyAccount = (props) => {
                     <div><b>Название компании / ИНН вашего покупателя:</b> {props.orderData.innBuyer}</div>
                     <div><b>Телефон:</b> {props.orderData.phone}</div>
                     <div><b>Адрес электронной почты:</b> {props.orderData.email}</div>
+                    <div><b>Сумма финансирования:</b> {props.orderData.sum} руб.</div>
                 </div>
 
                 {
@@ -23,7 +25,7 @@ const MyAccount = (props) => {
                         return(
                             <div style={{fontSize: 12}} key={index}>
                                 <div style={{fontSize: 15, marginTop: 15}}><b>Покупатель {index+1}</b></div>
-                                <div><b>{buyer.name}: </b>{ buyer.sum } руб.</div>
+                                <div><b>{buyer.name}: </b>Сумма финансирования { buyer.sum } руб.</div>
                             </div>
                         )
                     })
