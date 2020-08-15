@@ -56,13 +56,10 @@ const Form = (props) => {
                 <li><Field component={renderField} label={'+7(___)___-__-__'} type={'tel'} name={'phone'} validate={[validation.required, validation.phone(10)]} {...phoneMask} /></li>
                 <li><Field component={renderField} label={'Адрес электронной почты'} type={'email'} name={'email'} validate={[validation.required, validation.email]} /></li>
                 <li><Field component={renderField} label={'Сумма финансирования, руб.'} type={'text'} name={'sum'} validate={[validation.required, validation.maxValue(50000000), validation.minValue(300000)]} normalize={validation.rank} /></li>
-                
                 {
                     props.buyerForms.map(form => <FormBuyer key={form.id} id={form.id} name={form.name} sum={form.sum}/>)
                 }
-
                 <button onClick={ addBuyer } className={`${style.addButton} ${style.animation}`} type='button'>Добавить покупателя</button>
-
                 {
                     props.step === '1' ? <>
                     <li className={style.agree}>Даю согласие на обработку моих персональных данных и подтверждаю факт<br/> ознакомления с Политикой в отношении обработки персональных данных.</li>
@@ -102,14 +99,10 @@ const FactoringReqForm = (props) => {
             }
     
             for(let i = 1; i <= buyerArray.length; i++){
-                for(var key in buyerArray[i] ) {
+                for(let key in buyerArray[i] ) {
                     for(let j = 1; j <= buyerArray.length; j++){
-                        if(key === `sumBuyer${j}`){
-                            sumBuyerArray.push(buyerArray[i][key])
-                        }
-                        if(key === `nameBuyer${j}`){
-                            nameBuyerArray.push(buyerArray[i][key])
-                        }
+                        key === `sumBuyer${j}` && sumBuyerArray.push(buyerArray[i][key])
+                        key === `nameBuyer${j}` && nameBuyerArray.push(buyerArray[i][key])
                     }
                 }
             }
