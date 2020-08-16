@@ -70,7 +70,6 @@ input::-webkit-input-placeholder { color:black; }
 }
 
 .inputCabinet {
-    /* margin: 10px; */
     margin:5px auto;
     width: 250px;
     text-align: center;
@@ -174,3 +173,57 @@ li {
 .inputfile{
     width:.1px;height:.1px;opacity:0;overflow:hidden;position:absolute;z-index:-1   
 }
+
+.help {
+    position: absolute;
+    top: 19px;
+    right: 10px;
+    float: right;
+    color: #a3a3a3;
+}
+
+.hidden
+{display: none;
+position: absolute;
+right: -45px;
+top: -20px;
+background-color: #fff;
+color: #000000;
+padding: 5px;
+text-align: center;
+-moz-box-shadow: 0 1px 1px rgba(0,0,0,.16);
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.16);
+box-shadow: 0 1px 1px rgba(0,0,0,.16);
+font-size: 12px;}
+
+.help + .hidden:before
+{content: " ";
+position: absolute;
+top: 98%;
+left: 10%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+height: 0;
+width: 0;
+border: 7px solid transparent;
+border-right: 7px solid #fff;
+border-color: #fff transparent transparent transparent;
+z-index: 2;}
+
+.help + .hidden:after
+{content: " ";
+position: absolute;
+top: 100%;
+left: 10%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+height: 0;
+width: 0;
+border: 7px solid transparent;
+border-right: 7px solid #fff;
+border-color: rgba(0,0,0,.16) transparent transparent transparent;
+z-index: 1;}
+
+.help:hover + .hidden{display: block;}

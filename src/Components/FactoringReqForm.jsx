@@ -7,9 +7,14 @@ import style from '../css/main.module.css'
 import { addBuyerForm, getStep, getOrderData } from '../redux/dataReduser'
 import loader from '../img/loader.svg'
 import { validation } from '../redux/utils'
+import icon from '../img/qIcon.svg'
 
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-    <div>
+    <div style={{ position: 'relative' }}>
+        <div className={style.help}>
+        <img src={icon} />
+        </div>
+        <span className={style.hidden}>Подсказка</span>
       <div>
         <input className={touched && (error || warning) ? style.inputError : style.inputStyle} {...input} placeholder={label} type={type} />
         {touched && ((error && <div className={style.warningText}>{error}</div>) || (warning && <div>{warning}</div>))}
