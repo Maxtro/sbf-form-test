@@ -16,7 +16,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
         </div>
         <span className={style.hidden}>Подсказка</span>
       <div>
-        <input className={touched && (error || warning) ? style.inputError : style.inputStyle} {...input} placeholder={label} type={type} />
+        <input className={touched && (error || warning) ? `${style.inputError} ${style.animation}` : `${style.inputStyle} ${style.animation}`} {...input} placeholder={label} type={type} />
         {touched && ((error && <div className={style.warningText}>{error}</div>) || (warning && <div>{warning}</div>))}
       </div>
     </div>
@@ -45,8 +45,8 @@ const Form = (props) => {
             <div style={{ textAlign: 'center', fontSize: 13, paddingBottom: 15 }}>Уже сейчас, в личном кабинете, вы можете предоставить<br/>  необходимый пакет документов.</div>
             <form>
                 <div style={{textAlign: 'center'}}>
-                    <li><Field className={style.inputCabinet} placeholder='Логин' component={'input'} type={'text'} name={'login'} /></li>
-                    <li><Field className={style.inputCabinet} placeholder='Пароль' component={'input'} type={'password'} name={'pass'} /></li>
+                    <li><Field className={`${style.inputCabinet} ${style.animation}`} placeholder='Логин' component={'input'} type={'text'} name={'login'} /></li>
+                    <li><Field className={`${style.inputCabinet} ${style.animation}`} placeholder='Пароль' component={'input'} type={'password'} name={'pass'} /></li>
                     <div style={{ fontSize: 12, cursor: 'pointer' }}><u>Забыли пароль?</u></div>
                 </div><br/>
                 <NavLink to={'/MyAccount'}>
