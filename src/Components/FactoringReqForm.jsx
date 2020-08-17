@@ -12,7 +12,7 @@ import icon from '../img/qIcon.svg'
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
     <div style={{ position: 'relative' }}>
         <div className={style.help}>
-        <img src={icon} />
+        <img src={icon} alt={''}/>
         </div>
         <span className={style.hidden}>Подсказка</span>
       <div>
